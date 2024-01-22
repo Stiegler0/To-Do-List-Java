@@ -47,10 +47,12 @@ public class Task {
         this.completed=completed;
     }
 
-    public String toString(){
-        return "Tâche à faire " + ID +
-                ": Titre: " + title +
-                ", Détails" + Description;
+    @Override
+    public String toString() {
+        return "Tâche à faire, numéor:  " + ID +
+                "\n\tTitre: " + title +
+                "\n\tDétails: " + Description;
     }
+
 
 }
