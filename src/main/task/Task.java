@@ -48,6 +48,9 @@ public class Task {
     }
 
     public String toString(){
-        return ID + "," + title + "," + Description;
+        return "Tâche à faire " + ID +
+                ": Titre: " + title +
+                ", Détails" + Description;
     }
+
 }
