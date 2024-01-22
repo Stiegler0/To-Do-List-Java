@@ -19,7 +19,10 @@ public class UserInterface {
         System.out.println("Menu");
         System.out.println("Sélectionner une option:");
         System.out.println("1.Add new task: ");
-        System.out.println("2.display the task: ");
+        System.out.println("2.display a specific task: ");
+        System.out.println("3.Display all non completed tasks:");
+        System.out.println("3.Display all the tasks");
+
     }
 
     public int readOption(){
@@ -33,7 +36,10 @@ public class UserInterface {
                 resultText = "Your selected option is: Edit task ";
                 break;
             case 3:
-                resultText = "Your selected option: Delete task";
+                resultText = "Your selected option: Display all non completed tasks";
+                break;
+            case 4:
+                resultText = "Your selected option: Display all the tasks";
                 break;
             default:
                 resultText = "Uknown option";
@@ -49,6 +55,12 @@ public class UserInterface {
                 break;
             case 2:
                 displayspecificTask();
+                break;
+            case 3:
+                displaynoncompletedtasks();
+                break;
+            case 4:
+                displayAllTasks();
                 break;
         }
 
@@ -67,6 +79,14 @@ public class UserInterface {
 
     public void displayspecificTask(){
         System.out.println("entrez Id");
-        //ob1.displaytask();
+        int id = scan.nextInt();
+        ob1.displaytask(id);
+    }
+
+    public void displaynoncompletedtasks(){
+        ob1.displayAllnonCompletedTasks();
+    }
+    public void displayAllTasks(){
+        ob1.displayAlltasks();
     }
 }

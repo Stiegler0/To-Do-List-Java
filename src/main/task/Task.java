@@ -25,7 +25,7 @@ public class Task {
         this.ID=ID;
     }
 
-    public String gettitle(){
+    public String getTitle(){
         return title;
     }
     public void setTitle(String title){

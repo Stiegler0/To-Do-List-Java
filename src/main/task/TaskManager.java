@@ -15,13 +15,49 @@ public class TaskManager {
             System.out.println("Liste vide");
         else{
             System.out.println(newtask);
+            //System.out.println(newtask.getTitle());
+            for (Task tak : taskList) {
+                System.out.println("ID: " + tak.getID());
+                System.out.println("Titre: " + tak.getTitle());
+                System.out.println("Description: " + tak.getDescription());
+                System.out.println("---------------");
+            }
         }
 
 
     }
-    public void displaytask(int taskindex){
-        Task selectedTask = taskList.get(taskindex);
-        System.out.println(selectedTask.gettitle());
+    public void displaytask(int taskid){
+        for (Task tak: taskList){
+            if(taskid==tak.getID()){
+                System.out.println("ID: " + tak.getID());
+                System.out.println("Titre: " + tak.getTitle());
+                System.out.println("Description: " + tak.getDescription());
+                System.out.println("---------------");
+            }else{
+                System.out.println("Task not found");
+            }
+        }
+
         //compare the id, loop through the array list and then display the convenable task
+    }
+
+    public void displayAllnonCompletedTasks(){
+        for (Task tak: taskList){
+            if(tak.getCompleted()){
+                System.out.println("ID: " + tak.getID());
+                System.out.println("Titre: " + tak.getTitle());
+                System.out.println("Description: " + tak.getDescription());
+                System.out.println("---------------");
+            }
+        }
+    }
+
+    public void displayAlltasks(){
+        for (Task tak: taskList){
+            System.out.println("ID: " + tak.getID());
+            System.out.println("Titre: " + tak.getTitle());
+            System.out.println("Description: " + tak.getDescription());
+            System.out.println("---------------");
+        }
     }
 }
