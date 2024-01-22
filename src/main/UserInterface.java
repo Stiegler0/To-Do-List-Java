@@ -19,7 +19,7 @@ public class UserInterface {
         System.out.println("Menu");
         System.out.println("Sélectionner une option:");
         System.out.println("1.Add new task: ");
-        System.out.println("1.display the task: ");
+        System.out.println("2.display the task: ");
     }
 
     public int readOption(){
@@ -61,11 +61,10 @@ public class UserInterface {
         System.out.println("Entrez la description de la tâche: ");
         String description = scan.nextLine();
         ob1.addtask(id,name,description);
-
     }
 
     public void displayspecificTask(){
         System.out.println("entrez Id");
-        ob1.displaytask();
+        //ob1.displaytask();
     }
 }
