@@ -46,8 +46,10 @@ public class UserInterface {
         switch (option){
             case 1:
                 addTask();
+                break;
             case 2:
                 displayspecificTask();
+                break;
         }
 
     }
