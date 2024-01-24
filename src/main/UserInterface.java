@@ -1,5 +1,6 @@
 package main;
 import main.task.TaskManager;
+import java.util.InputMismatchException;
 
 import java.awt.*;
 import java.util.Scanner;
@@ -67,14 +68,21 @@ public class UserInterface {
     }
 
     public void addTask(){
-        System.out.println("Entrez ID de la tâche: ");
-        int id = scan.nextInt();
-        scan.nextLine();
-        System.out.println("Entrez le titre de la tâche: ");
-        String name = scan.nextLine();
-        System.out.println("Entrez la description de la tâche: ");
-        String description = scan.nextLine();
-        ob1.addtask(id,name,description);
+        try{
+            System.out.println("Entrez ID de la tâche: ");
+            int id = scan.nextInt();
+            scan.nextLine();
+            System.out.println("Entrez le titre de la tâche: ");
+            String name = scan.nextLine();
+            System.out.println("Entrez la description de la tâche: ");
+            String description = scan.nextLine();
+            ob1.addtask(id,name,description);
+        }catch(InputMismatchException e){
+            System.out.println("Erreur");
+            scan.nextLine();
+        }
+
+        //InputMismatchException
     }
 
     public void displayspecificTask(){

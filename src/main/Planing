@@ -9,7 +9,7 @@ Organisation: Main class will contain the app, the interaction in the consol, =>
               .Class taskManager: will contain methods( to display, add, delete, mark as done)
                                   . think abt save task in files
               .Class Task: contain details abt each task:(description, date d echeance)
-                           .Méthods pour récuperer, et modifier les informations de tache, think abt task details as attributes in the class
+                           .Méthods pour récupérer, et modifier les informations de tâche, think abt task details as attributes in the class
               .Class USerinterface:
                                    display console, Scanner ?...
 
@@ -33,3 +33,6 @@ for example add new task:
 
 
 // read abt Wrapper class in java
+
+
+//think abt serialization
