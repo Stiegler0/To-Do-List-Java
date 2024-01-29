@@ -37,7 +37,7 @@ public class Task {
         return Description;
     }
     public void setDescription(String Description){
-        this.title=Description;
+        this.Description=Description;
     }
 
     public boolean getCompleted(){
