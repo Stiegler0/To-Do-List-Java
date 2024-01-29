@@ -2,10 +2,12 @@ package main.task;
 
 import jdk.jfr.Description;
 
+import java.io.Serializable;
+
 // display the task
 // encapsulation des détails de la tâche
 //
-public class Task {
+public class Task implements Serializable {
     private int ID;
     private String title;
     private String Description;

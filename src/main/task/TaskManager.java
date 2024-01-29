@@ -1,6 +1,6 @@
 package main.task;
 import java.util.*;
-
+import java.io.*;
 // classe pour gérer les opérations: ajout, ....
 public class TaskManager {
     //ndiro array list tant que attribut de classe 7sn ma variable local f method
@@ -23,11 +23,23 @@ public class TaskManager {
                 System.out.println("---------------");
             }
         }
+        try{
+            FileOutputStream fileout = new FileOutputStream("task.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileout);
+            out.writeObject(newtask);
+            out.close();
+            fileout.close();
+            System.out.printf("Serialization is done");
+        }catch (IOException i){
+            i.printStackTrace();
+        }
 
 
 
     }
     public void displaytask(int taskid){
+        // provide code to display the task
+
         for (Task tak: taskList){
             if(taskid==tak.getID()){
                 System.out.println("ID: " + tak.getID());
@@ -41,8 +53,24 @@ public class TaskManager {
 
         //compare the id, loop through the array list and then display the convenable task
     }
+    public List<Task> loadTasks(String filename){
+        List<Task> tasks = null;
+        try{
+            FileInputStream fileIn = new FileInputStream(filename);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            tasks = (List<Task>) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+    }
+        return tasks;
+    }
 
     public void displayAllnonCompletedTasks(){
+        taskList = (ArrayList<Task>) loadTasks("task.ser");
         for (Task tak: taskList){
             if(tak.getCompleted() == false){
                 System.out.println("ID: " + tak.getID());
@@ -69,6 +97,7 @@ public class TaskManager {
     }
 
     public void displayAlltasks(){
+        taskList = (ArrayList<Task>) loadTasks("task.ser");
         for (Task tak: taskList){
             System.out.println("ID: " + tak.getID());
             System.out.println("Titre: " + tak.getTitle());
