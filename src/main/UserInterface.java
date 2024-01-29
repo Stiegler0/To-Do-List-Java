@@ -11,10 +11,18 @@ public class UserInterface {
     private Scanner scan = new Scanner(System.in);
 
     public void start(){
-        showMenu();
-        int optionNumber = readOption();
-        System.out.println(optionNumber);
-        executeOption(optionNumber);
+        boolean isRunning = true;
+        while(isRunning){
+            showMenu();
+            int optionNumber = readOption();
+            if(optionNumber==5){
+                System.out.println("see u soon <3");
+                isRunning=false;
+            }else{
+                executeOption(optionNumber);
+            }
+        }
+
     }
     public void showMenu(){
         System.out.println("Menu");
@@ -22,7 +30,8 @@ public class UserInterface {
         System.out.println("1.Add new task: ");
         System.out.println("2.display a specific task: ");
         System.out.println("3.Display all non completed tasks:");
-        System.out.println("3.Display all the tasks");
+        System.out.println("4.Display all the tasks");
+        System.out.println("5.Exit:");
 
     }
 
@@ -41,6 +50,9 @@ public class UserInterface {
                 break;
             case 4:
                 resultText = "Your selected option: Display all the tasks";
+                break;
+            case 5:
+                //
                 break;
             default:
                 resultText = "Uknown option";
@@ -81,9 +93,10 @@ public class UserInterface {
                 ob1.addtask(id,name,description);
                 input_valide=true;
             }catch(InputMismatchException e){
-                System.out.println("Erreur");
+                System.out.println("Erreur: " + e);
                 scan.nextLine();
             }
+
         }
 
 
