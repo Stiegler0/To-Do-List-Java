@@ -10,7 +10,7 @@ public class TaskManager {
         //taskList.add(Task.ob);
         Task newtask = new Task(id, name, description);
         taskList.add(newtask);
-        System.out.print("Tâche ajoutée: ");
+        System.out.println("Tâche ajoutée: ");
         if (taskList.isEmpty())
             System.out.println("Liste vide");
         else{
@@ -44,13 +44,28 @@ public class TaskManager {
 
     public void displayAllnonCompletedTasks(){
         for (Task tak: taskList){
-            if(tak.getCompleted()){
+            if(tak.getCompleted() == false){
                 System.out.println("ID: " + tak.getID());
                 System.out.println("Titre: " + tak.getTitle());
                 System.out.println("Description: " + tak.getDescription());
+                System.out.println("Status: " + tak.getCompletionStatus());
                 System.out.println("---------------");
             }
         }
+    }
+
+    public void checkstatusofTask(int id){
+        for (Task tak: taskList){
+             System.out.println("ID: " + tak.getID());
+             System.out.println("Titre: " + tak.getTitle());
+             System.out.println("---------------");
+
+             System.out.println("Status: "+ tak.getCompletionStatus());
+             System.out.println("---------------");
+
+             //System.out.println(tak.getCompleted());
+        }
+
     }
 
     public void displayAlltasks(){

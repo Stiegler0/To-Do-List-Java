@@ -15,8 +15,7 @@ public class UserInterface {
         while(isRunning){
             showMenu();
             int optionNumber = readOption();
-            if(optionNumber==5){
-                System.out.println("see u soon <3");
+            if(optionNumber==6){
                 isRunning=false;
             }else{
                 executeOption(optionNumber);
@@ -31,7 +30,8 @@ public class UserInterface {
         System.out.println("2.display a specific task: ");
         System.out.println("3.Display all non completed tasks:");
         System.out.println("4.Display all the tasks");
-        System.out.println("5.Exit:");
+        System.out.println("5.Display status of your task:");
+        System.out.println("6.Exit");
 
     }
 
@@ -52,10 +52,14 @@ public class UserInterface {
                 resultText = "Your selected option: Display all the tasks";
                 break;
             case 5:
-                //
+                resultText = "Your selected option:: Display status of your task";
                 break;
+            case 6:
+                resultText ="see u soon <3";
+                break;
+
             default:
-                resultText = "Uknown option";
+                resultText = "Your selected option: Uknown option";
                 //think abt re-display the menu
         }
         System.out.println(resultText);
@@ -74,6 +78,10 @@ public class UserInterface {
                 break;
             case 4:
                 displayAllTasks();
+                break;
+            case 5:
+                status();
+            case 6:
                 break;
         }
 
@@ -104,7 +112,7 @@ public class UserInterface {
     }
 
     public void displayspecificTask(){
-        System.out.println("entrez Id");
+        System.out.println("Entrez Id");
         int id = scan.nextInt();
         ob1.displaytask(id);
     }
@@ -115,4 +123,12 @@ public class UserInterface {
     public void displayAllTasks(){
         ob1.displayAlltasks();
     }
+
+    public void status(){
+        System.out.println("Entrez Id");
+        int id = scan.nextInt();
+        ob1.checkstatusofTask(id);
+    }
 }
+
+
