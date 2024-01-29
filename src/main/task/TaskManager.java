@@ -14,7 +14,7 @@ public class TaskManager {
         if (taskList.isEmpty())
             System.out.println("Liste vide");
         else{
-            System.out.println(newtask);
+            //System.out.println(newtask);
             //System.out.println(newtask.getTitle());
             for (Task tak : taskList) {
                 System.out.println("ID: " + tak.getID());
@@ -23,6 +23,7 @@ public class TaskManager {
                 System.out.println("---------------");
             }
         }
+
 
 
     }
