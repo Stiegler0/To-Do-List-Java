@@ -41,7 +41,10 @@ public class Task {
     }
 
     public boolean getCompleted(){
-        return completed;
+        return this.completed;
+    }
+    public String getCompletionStatus(){
+        return this.completed ? "Done&Completed" : "Non Completed";
     }
     public void setCompleted(boolean completed){
         this.completed=completed;
