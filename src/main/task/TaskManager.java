@@ -1,8 +1,11 @@
 package main.task;
 import java.util.*;
 import java.io.*;
+
 // classe pour gérer les opérations: ajout, ....
 public class TaskManager {
+    private Scanner scan = new Scanner(System.in);
+
     //ndiro array list tant que attribut de classe 7sn ma variable local f method
     private ArrayList<Task> taskList = new ArrayList<>();
     public void addtask(int id, String name, String description){
@@ -32,7 +35,7 @@ public class TaskManager {
             out.writeObject(taskList);
             out.close();
             fileout.close();
-            System.out.printf("Serialization is done");
+            //System.out.printf("Serialization is done");
         }catch (IOException i){
             i.printStackTrace();
         }
@@ -99,6 +102,16 @@ public class TaskManager {
 
              System.out.println("Status: "+ tak.getCompletionStatus());
              System.out.println("---------------");
+             System.out.println("Want to modify its status ? [YES]/[NO]");
+             String respon = scan.nextLine();
+             if(respon.equalsIgnoreCase("YES")){
+                 //response.equalsIgnoreCase
+                 tak.setCompleted(true);
+                 serializeTaskList();
+             }
+            System.out.println("Status: "+ tak.getCompletionStatus());
+            System.out.println("---------------");
+
 
              //System.out.println(tak.getCompleted());
         }
@@ -111,6 +124,7 @@ public class TaskManager {
             System.out.println("ID: " + tak.getID());
             System.out.println("Titre: " + tak.getTitle());
             System.out.println("Description: " + tak.getDescription());
+            System.out.println("Status: " + tak.getCompletionStatus());
             System.out.println("---------------");
         }
     }

@@ -30,7 +30,7 @@ public class UserInterface {
         System.out.println("2.display a specific task: ");
         System.out.println("3.Display all non completed tasks:");
         System.out.println("4.Display all the tasks");
-        System.out.println("5.Display status of your task:");
+        System.out.println("5.Display/Change status of your task:");
         System.out.println("6.Exit");
 
     }
@@ -52,7 +52,7 @@ public class UserInterface {
                 resultText = "Your selected option: Display all the tasks";
                 break;
             case 5:
-                resultText = "Your selected option:: Display status of your task";
+                resultText = "Your selected option:: Display/Change the status of your task";
                 break;
             case 6:
                 resultText ="see u soon <3";
