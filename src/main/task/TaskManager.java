@@ -74,25 +74,30 @@ public class TaskManager {
     }
 
 
-    public void displayAllnonCompletedTasks(){
+    public void displayAllnonCompletedTasks() {
 
         taskList = (ArrayList<Task>) loadTasks("task.ser");
-        if (taskList != null){
-            for (Task tak: taskList){
-                if(tak.getCompleted() == false){
-                    System.out.println("ID: " + tak.getID());
-                    System.out.println("Titre: " + tak.getTitle());
-                    System.out.println("Description: " + tak.getDescription());
-                    System.out.println("Status: " + tak.getCompletionStatus());
-                    System.out.println("---------------");
-                }
+
+        for (Task tak : taskList) {
+            //if (taskList != null) {
+            if (tak.getCompleted() == false) {
+                System.out.println("ID: " + tak.getID());
+                System.out.println("Titre: " + tak.getTitle());
+                System.out.println("Description: " + tak.getDescription());
+                System.out.println("Status: " + tak.getCompletionStatus());
+                System.out.println("---------------");
+            } else {
+                System.out.println("Liqte sans tache à faire");
             }
-        }else{
-            System.out.println("Liste vide");
+            //}else{
+            // System.out.println("Liste vide");
+            // }
         }
-
-
     }
+
+
+
+
 
     public void checkstatusofTask(int id){
         for (Task tak: taskList){
