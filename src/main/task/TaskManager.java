@@ -57,8 +57,8 @@ public class TaskManager {
     }
 
     public void displaytask(int taskid){
+        taskList = (ArrayList<Task>) loadTasks("task.ser");
         // provide code to display the task
-
         for (Task tak: taskList){
             if(taskid==tak.getID()){
                 System.out.println("ID: " + tak.getID());
@@ -94,9 +94,6 @@ public class TaskManager {
             // }
         }
     }
-
-
-
 
 
     public void checkstatusofTask(int id){
