@@ -1,4 +1,5 @@
 package main.task;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.io.*;
 
@@ -40,8 +41,8 @@ public class TaskManager {
             i.printStackTrace();
         }
     }
-    public List<Task> loadTasks(String filename){
-        List<Task> tasks = null;
+    public ArrayList<Task> loadTasks(String filename){
+        ArrayList<Task> tasks = null;
         try{
             FileInputStream fileIn = new FileInputStream(filename);
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -121,7 +122,7 @@ public class TaskManager {
     }
 
     public void displayAlltasks(){
-        taskList = (ArrayList<Task>) loadTasks("task.ser");
+        taskList =  loadTasks("task.ser");
         for (Task tak: taskList){
             System.out.println("ID: " + tak.getID());
             System.out.println("Titre: " + tak.getTitle());
