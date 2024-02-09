@@ -1,9 +1,8 @@
 package main.task;
 
-import jdk.jfr.Description;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 // display the task
 // encapsulation des détails de la tâche
@@ -14,14 +13,16 @@ public class Task implements Serializable {
     private String Description;
     private boolean completed;
     private LocalDateTime creationtime;
+    private String formatedDate;
 
 
-    public Task(int ID, String title, String Description, LocalDateTime creationtime){
+    public Task(int ID, String title, String Description,LocalDateTime creationtime, String formatedDate){
         this.ID = ID;
         this.title = title;
         this.Description = Description;
         this.completed = false;
         this.creationtime = LocalDateTime.now();
+        this.formatedDate = this.creationtime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
     public int getID(){
@@ -57,6 +58,9 @@ public class Task implements Serializable {
     }
     public LocalDateTime getCreationtime(){
         return this.creationtime;
+    }
+    public String getFormatedDate() {
+        return this.formatedDate;
     }
 
     @Override

@@ -1,5 +1,8 @@
 package main;
 import main.task.TaskManager;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 
 import java.awt.*;
@@ -98,7 +101,9 @@ public class UserInterface {
                 String name = scan.nextLine();
                 System.out.println("Entrez la description de la tâche: ");
                 String description = scan.nextLine();
-                ob1.addtask(id,name,description);
+                LocalDateTime timecreation = LocalDateTime.now();
+                String formatdate = timecreation.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                ob1.addtask(id,name,description,timecreation, formatdate);
                 input_valide=true;
             }catch(InputMismatchException e){
                 System.out.println("Erreur: " + e);

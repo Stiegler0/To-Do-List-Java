@@ -1,5 +1,5 @@
 package main.task;
-import java.lang.reflect.Array;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.io.*;
 
@@ -9,10 +9,10 @@ public class TaskManager {
 
     //ndiro array list tant que attribut de classe 7sn ma variable local f method
     private ArrayList<Task> taskList = new ArrayList<>();
-    public void addtask(int id, String name, String description){
+    public void addtask(int id, String name, String description, LocalDateTime creationtime, String formatedDate){
         // add method in ArrayList class:
         //taskList.add(Task.ob);
-        Task newtask = new Task(id, name, description);
+        Task newtask = new Task(id, name, description,creationtime, formatedDate);
         taskList.add(newtask);
         System.out.println("Tâche ajoutée: ");
         if (taskList.isEmpty())
@@ -24,6 +24,8 @@ public class TaskManager {
                 System.out.println("ID: " + tak.getID());
                 System.out.println("Titre: " + tak.getTitle());
                 System.out.println("Description: " + tak.getDescription());
+                System.out.println("Time creation: " + tak.getFormatedDate());
+
                 System.out.println("---------------");
             }
         }
@@ -65,6 +67,8 @@ public class TaskManager {
                 System.out.println("ID: " + tak.getID());
                 System.out.println("Titre: " + tak.getTitle());
                 System.out.println("Description: " + tak.getDescription());
+                System.out.println("Time Creation: " + tak.getCreationtime());
+
                 System.out.println("---------------");
             }else{
                 System.out.println("Task not found");
