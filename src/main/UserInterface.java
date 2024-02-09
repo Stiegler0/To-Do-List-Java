@@ -18,7 +18,7 @@ public class UserInterface {
         while(isRunning){
             showMenu();
             int optionNumber = readOption();
-            if(optionNumber==6){
+            if(optionNumber==7){
                 isRunning=false;
             }else{
                 executeOption(optionNumber);
@@ -29,12 +29,14 @@ public class UserInterface {
     public void showMenu(){
         System.out.println("Menu");
         System.out.println("Sélectionner une option:");
+        System.out.println("---------------");
         System.out.println("1.Add new task: ");
         System.out.println("2.display a specific task: ");
         System.out.println("3.Display all non completed tasks:");
         System.out.println("4.Display all the tasks");
         System.out.println("5.Display/Change status of your task:");
-        System.out.println("6.Exit");
+        System.out.println("6. Delete a task:");
+        System.out.println("7.Exit:");
 
     }
 
@@ -55,9 +57,11 @@ public class UserInterface {
                 resultText = "Your selected option: Display all the tasks";
                 break;
             case 5:
-                resultText = "Your selected option:: Display/Change the status of your task";
+                resultText = "Your selected option: Display/Change the status of your task";
                 break;
             case 6:
+                resultText = "Your selected option: delete the task";
+            case 7:
                 resultText ="see u soon <3";
                 break;
 
@@ -85,6 +89,8 @@ public class UserInterface {
             case 5:
                 status();
             case 6:
+                deleteTtask();
+            case 7:
                 break;
         }
 
@@ -133,6 +139,12 @@ public class UserInterface {
         System.out.println("Entrez Id");
         int id = scan.nextInt();
         ob1.checkstatusofTask(id);
+    }
+    public void deleteTtask(){
+        System.out.println("Entre l'ID de task à supprimer:");
+        int id = scan.nextInt();
+        ob1.deletestask(id);
+
     }
 }
 

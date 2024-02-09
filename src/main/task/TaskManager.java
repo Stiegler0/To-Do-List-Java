@@ -60,7 +60,7 @@ public class TaskManager {
     }
 
     public void displaytask(int taskid){
-        taskList = (ArrayList<Task>) loadTasks("task.ser");
+        taskList =  loadTasks("task.ser");
         // provide code to display the task
         for (Task tak: taskList){
             if(taskid==tak.getID()){
@@ -77,6 +77,18 @@ public class TaskManager {
 
         //compare the id, loop through the array list and then display the convenable task
     }
+// write a method to delete a task
+public void deletestask(int taskid) {
+    taskList = loadTasks("task.ser");
+    for (Task tak : taskList) {
+        if (taskid == tak.getID()) {
+            taskList.remove(taskid - 1);
+            serializeTaskList();
+            System.out.println("Task deleted");
+        }
+    }
+
+}
 
 
     public void displayAllnonCompletedTasks() {
@@ -132,6 +144,7 @@ public class TaskManager {
             System.out.println("Titre: " + tak.getTitle());
             System.out.println("Description: " + tak.getDescription());
             System.out.println("Status: " + tak.getCompletionStatus());
+            System.out.println("Time Creation: " + tak.getFormatedDate());
             System.out.println("---------------");
         }
     }
