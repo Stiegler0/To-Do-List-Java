@@ -3,6 +3,7 @@ package main.task;
 import jdk.jfr.Description;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 // display the task
 // encapsulation des détails de la tâche
@@ -12,12 +13,15 @@ public class Task implements Serializable {
     private String title;
     private String Description;
     private boolean completed;
+    private LocalDateTime creationtime;
 
-    public Task(int ID, String title, String Description){
+
+    public Task(int ID, String title, String Description, LocalDateTime creationtime){
         this.ID = ID;
         this.title = title;
         this.Description = Description;
         this.completed = false;
+        this.creationtime = LocalDateTime.now();
     }
 
     public int getID(){
@@ -50,6 +54,9 @@ public class Task implements Serializable {
     }
     public void setCompleted(boolean completed){
         this.completed=completed;
+    }
+    public LocalDateTime getCreationtime(){
+        return this.creationtime;
     }
 
     @Override
