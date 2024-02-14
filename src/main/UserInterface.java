@@ -1,17 +1,22 @@
 package main;
 import main.task.TaskManager;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.InputMismatchException;
 
 import java.awt.*;
 import java.util.Scanner;
-
+import org.json.JSONObject;
 
 public class UserInterface {
     private TaskManager ob1 = new TaskManager();
     private Scanner scan = new Scanner(System.in);
+
+    private MonAPI quote = new MonAPI();
+
+
 
     public void start(){
         boolean isRunning = true;
@@ -26,8 +31,14 @@ public class UserInterface {
         }
 
     }
-    public void showMenu(){
+    public void showMenu() {
+
+        String qt = quote.getQuote();
+
         System.out.println("Menu");
+        System.out.println("Quote:");
+        System.out.println(qt);
+        System.out.println("---------------");
         System.out.println("Sélectionner une option:");
         System.out.println("---------------");
         System.out.println("1.Add new task: ");
